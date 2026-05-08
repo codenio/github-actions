@@ -1,0 +1,32 @@
+name: 03 - Workflow Runners
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    ubuntu-echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show OS
+              run: |
+                echo "This job is running on an Ubuntu runner."
+                echo "os : $RUNNER_OS"
+                
+    windows-echo:
+        runs-on: windows-latest
+        steps:
+            - name: Show OS
+              shell: bash
+              run: |
+                echo "I'm running on bash."  
+                echo "This job is running on a Windows runner."
+                echo "os : $RUNNER_OS"
+
+    macos-echo:
+        runs-on: macos-latest
+        steps:
+            - name: Show OS
+              run: |
+                echo "This job is running on a macOS runner."
+                echo "os : $RUNNER_OS"
